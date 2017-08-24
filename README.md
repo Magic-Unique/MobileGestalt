@@ -31,11 +31,15 @@ Project -> Target -> Capabilities -> Open Background Modes -> Enable Audio, AirP
 
 **3. Import Library**
 
-I will make it support CocoaPods song.
+I will make it support CocoaPods soon.
 
 Drag `MUMobileGestalt` , `GCDWebServer` , `MMPDeepSleepPreventer` to your project.
 
-**4. Coding**
+**4. Add URL Scheme if you want**
+
+Add an unique url scheme that user-interface can jump back from SettingsApp automatic.
+
+**5. Coding**
 
 **Import**
 
@@ -49,6 +53,7 @@ Drag `MUMobileGestalt` , `GCDWebServer` , `MMPDeepSleepPreventer` to your projec
 ```objective-c
 
 MUMobileGestaltRequest *request = [[MUMobileGestaltRequest alloc] init];
+self.session = [[MUMobileGestaltSession session]
 [self.session request:request completed:^NSURL *(MUMobileGestaltSession *session, MUMobileGestaltRequest *request, MUMobileGestaltResponse *response) {
 	if (response.error) {
 		NSLog(@"%@", response.error);
