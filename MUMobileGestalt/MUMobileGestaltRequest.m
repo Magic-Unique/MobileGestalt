@@ -12,10 +12,6 @@
 
 @implementation MUMobileGestaltRequest
 
-+ (NSString *)genUUID {
-    return [NSString mumg_UUID];
-}
-
 - (instancetype)init {
     self = [super init];
     if (self) {

@@ -19,11 +19,8 @@ typedef NS_ENUM(NSUInteger, MUMobileGestaltAttribute) {
 
 FOUNDATION_EXTERN NSArray *JSONFromAttributtes(MUMobileGestaltAttribute attributes);
 
+FOUNDATION_EXTERN NSString *const MUMobileGestaltServerMobileConfigPath;
 FOUNDATION_EXTERN NSString *const MUMobileGestaltServerMobileConfigURL;
 
 FOUNDATION_EXTERN NSString *const MUMobileGestaltServerRegisterPath;
 FOUNDATION_EXTERN NSString *const MUMobileGestaltServerRegisterURL;
-
-@interface MUMobileGestaltUtils : NSObject
-
-@end
