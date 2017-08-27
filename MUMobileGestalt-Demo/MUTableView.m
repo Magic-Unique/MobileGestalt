@@ -22,4 +22,10 @@
     return self;
 }
 
+- (void)tableViewDidSelectedSection:(NSInteger)section row:(NSInteger)row {
+	if (section == 0) {
+		
+	}
+}
+
 @end
