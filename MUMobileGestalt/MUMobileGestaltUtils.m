@@ -21,7 +21,7 @@ NSArray *JSONFromAttributtes(MUMobileGestaltAttribute attributes) {
 }
 
 NSString *const MUMobileGestaltServerMobileConfigPath   = @"/mobilegestalt/request.mobileconfig";
-NSString *const MUMobileGestaltServerMobileConfigURL    = @"http://localhost:8088/mobilegestalt/request.mobileconfig";
+NSString *const MUMobileGestaltServerMobileConfigURL    = @"http://127.0.0.1:8088/mobilegestalt/request.mobileconfig";
 
 NSString *const MUMobileGestaltServerRegisterPath       = @"/mobilegestalt/register";
-NSString *const MUMobileGestaltServerRegisterURL        = @"http://localhost:8088/mobilegestalt/register";
+NSString *const MUMobileGestaltServerRegisterURL        = @"http://127.0.0.1:8088/mobilegestalt/register";
