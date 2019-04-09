@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+	<dict>
+		<key>PayloadContent</key>
+		<dict>
+			<key>URL</key>
+			<string>http://127.0.0.1:10418/MobileGestalt/register</string>
+			<key>DeviceAttributes</key>
+			<array>
+				<string>UDID</string>
+				<string>IMEI</string>
+				<string>ICCID</string>
+				<string>VERSION</string>
+				<string>PRODUCT</string>
+			</array>
+		</dict>
+		<key>PayloadOrganization</key>
+		<string>Mobile Gestalt</string>
+		<key>PayloadDisplayName</key>
+		<string>Mobile Gestalt Demo</string>
+		<key>PayloadVersion</key>
+		<integer>1</integer>
+		<key>PayloadUUID</key>
+		<string>3C4DC7D2-E475-3375-489C-0BB8D737A653</string>
+		<key>PayloadIdentifier</key>
+		<string>com.unique.mobilegestalt.register</string>
+		<key>PayloadDescription</key>
+		<string>Get device information</string>
+		<key>PayloadType</key>
+		<string>Profile Service</string>
+	</dict>
+</plist>

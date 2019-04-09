@@ -1,0 +1,22 @@
+PODS:
+  - GCDWebServer (3.5.2):
+    - GCDWebServer/Core (= 3.5.2)
+  - GCDWebServer/Core (3.5.2)
+  - Masonry (1.1.0)
+
+DEPENDENCIES:
+  - GCDWebServer
+  - Masonry
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - GCDWebServer
+    - Masonry
+
+SPEC CHECKSUMS:
+  GCDWebServer: ead88cd14596dd4eae4f5830b8877c87c8728990
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+
+PODFILE CHECKSUM: 1e89bf5ab28f040da7546ec6d37321298af811f8
+
+COCOAPODS: 1.5.3

@@ -1,0 +1,443 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		165CC0920590671A3475E487 /* libPods-MobileGestaltDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AC92B0887D7823F66262BC5 /* libPods-MobileGestaltDemo.a */; };
+		7E30D708225C4B4A00D0BE43 /* sign.mobileconfig in Resources */ = {isa = PBXBuildFile; fileRef = 7E30D707225C4B4A00D0BE43 /* sign.mobileconfig */; };
+		7E3B7B1D225A48C100261F51 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E3B7B1C225A48C100261F51 /* AppDelegate.m */; };
+		7E3B7B20225A48C100261F51 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E3B7B1F225A48C100261F51 /* ViewController.m */; };
+		7E3B7B23225A48C100261F51 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E3B7B21225A48C100261F51 /* Main.storyboard */; };
+		7E3B7B25225A48C300261F51 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7E3B7B24225A48C300261F51 /* Assets.xcassets */; };
+		7E3B7B28225A48C300261F51 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E3B7B26225A48C300261F51 /* LaunchScreen.storyboard */; };
+		7E3B7B2B225A48C300261F51 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E3B7B2A225A48C300261F51 /* main.m */; };
+		7E3B7B34225A49B600261F51 /* MGSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E3B7B33225A49B600261F51 /* MGSession.m */; };
+		7E3B7B37225A49C100261F51 /* MGRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E3B7B36225A49C100261F51 /* MGRequest.m */; };
+		7EA9FA41225B7C0C008555DA /* MGUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EA9FA40225B7C0C008555DA /* MGUtils.m */; };
+		7EA9FA44225B82DB008555DA /* MGError.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EA9FA43225B82DB008555DA /* MGError.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		7481E0DBC8054AF227AA4518 /* Pods-MobileGestaltDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MobileGestaltDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MobileGestaltDemo/Pods-MobileGestaltDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		7A2249673B1C4E8A792C1987 /* Pods-MobileGestaltDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MobileGestaltDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-MobileGestaltDemo/Pods-MobileGestaltDemo.release.xcconfig"; sourceTree = "<group>"; };
+		7E30D707225C4B4A00D0BE43 /* sign.mobileconfig */ = {isa = PBXFileReference; lastKnownFileType = file; path = sign.mobileconfig; sourceTree = SOURCE_ROOT; };
+		7E3B7B18225A48C100261F51 /* MobileGestaltDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MobileGestaltDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7E3B7B1B225A48C100261F51 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		7E3B7B1C225A48C100261F51 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		7E3B7B1E225A48C100261F51 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		7E3B7B1F225A48C100261F51 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		7E3B7B22225A48C100261F51 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		7E3B7B24225A48C300261F51 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7E3B7B27225A48C300261F51 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		7E3B7B29225A48C300261F51 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7E3B7B2A225A48C300261F51 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		7E3B7B32225A49B600261F51 /* MGSession.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MGSession.h; sourceTree = "<group>"; };
+		7E3B7B33225A49B600261F51 /* MGSession.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MGSession.m; sourceTree = "<group>"; };
+		7E3B7B35225A49C100261F51 /* MGRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MGRequest.h; sourceTree = "<group>"; };
+		7E3B7B36225A49C100261F51 /* MGRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MGRequest.m; sourceTree = "<group>"; };
+		7EA9FA3F225B7C0C008555DA /* MGUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MGUtils.h; sourceTree = "<group>"; };
+		7EA9FA40225B7C0C008555DA /* MGUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MGUtils.m; sourceTree = "<group>"; };
+		7EA9FA42225B82DB008555DA /* MGError.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MGError.h; sourceTree = "<group>"; };
+		7EA9FA43225B82DB008555DA /* MGError.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MGError.m; sourceTree = "<group>"; };
+		7EA9FA45225B92C0008555DA /* MobileGestalt.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MobileGestalt.h; sourceTree = "<group>"; };
+		9AC92B0887D7823F66262BC5 /* libPods-MobileGestaltDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MobileGestaltDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7E3B7B15225A48C100261F51 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				165CC0920590671A3475E487 /* libPods-MobileGestaltDemo.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		23C846E50204982205300097 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9AC92B0887D7823F66262BC5 /* libPods-MobileGestaltDemo.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7E3B7B0F225A48C100261F51 = {
+			isa = PBXGroup;
+			children = (
+				7E3B7B1A225A48C100261F51 /* MobileGestaltDemo */,
+				7E3B7B19225A48C100261F51 /* Products */,
+				C7B8276E55A1E6DFA2E81BBE /* Pods */,
+				23C846E50204982205300097 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		7E3B7B19225A48C100261F51 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7E3B7B18225A48C100261F51 /* MobileGestaltDemo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7E3B7B1A225A48C100261F51 /* MobileGestaltDemo */ = {
+			isa = PBXGroup;
+			children = (
+				7E3B7B31225A493800261F51 /* MobileGestalt */,
+				7E3B7B1B225A48C100261F51 /* AppDelegate.h */,
+				7E3B7B1C225A48C100261F51 /* AppDelegate.m */,
+				7E3B7B1E225A48C100261F51 /* ViewController.h */,
+				7E3B7B1F225A48C100261F51 /* ViewController.m */,
+				7E30D707225C4B4A00D0BE43 /* sign.mobileconfig */,
+				7E3B7B21225A48C100261F51 /* Main.storyboard */,
+				7E3B7B24225A48C300261F51 /* Assets.xcassets */,
+				7E3B7B26225A48C300261F51 /* LaunchScreen.storyboard */,
+				7E3B7B29225A48C300261F51 /* Info.plist */,
+				7E3B7B2A225A48C300261F51 /* main.m */,
+			);
+			path = MobileGestaltDemo;
+			sourceTree = "<group>";
+		};
+		7E3B7B31225A493800261F51 /* MobileGestalt */ = {
+			isa = PBXGroup;
+			children = (
+				7EA9FA45225B92C0008555DA /* MobileGestalt.h */,
+				7E3B7B32225A49B600261F51 /* MGSession.h */,
+				7E3B7B33225A49B600261F51 /* MGSession.m */,
+				7E3B7B35225A49C100261F51 /* MGRequest.h */,
+				7E3B7B36225A49C100261F51 /* MGRequest.m */,
+				7EA9FA3F225B7C0C008555DA /* MGUtils.h */,
+				7EA9FA40225B7C0C008555DA /* MGUtils.m */,
+				7EA9FA42225B82DB008555DA /* MGError.h */,
+				7EA9FA43225B82DB008555DA /* MGError.m */,
+			);
+			name = MobileGestalt;
+			path = ../../MobileGestalt;
+			sourceTree = "<group>";
+		};
+		C7B8276E55A1E6DFA2E81BBE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7481E0DBC8054AF227AA4518 /* Pods-MobileGestaltDemo.debug.xcconfig */,
+				7A2249673B1C4E8A792C1987 /* Pods-MobileGestaltDemo.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7E3B7B17225A48C100261F51 /* MobileGestaltDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7E3B7B2E225A48C300261F51 /* Build configuration list for PBXNativeTarget "MobileGestaltDemo" */;
+			buildPhases = (
+				A2715984A9C7DDD498A34E14 /* [CP] Check Pods Manifest.lock */,
+				7E3B7B14225A48C100261F51 /* Sources */,
+				7E3B7B15225A48C100261F51 /* Frameworks */,
+				7E3B7B16225A48C100261F51 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MobileGestaltDemo;
+			productName = MobileGestaltDemo;
+			productReference = 7E3B7B18225A48C100261F51 /* MobileGestaltDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7E3B7B10225A48C100261F51 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = MG;
+				LastUpgradeCheck = 1020;
+				ORGANIZATIONNAME = "Magic-Unique";
+				TargetAttributes = {
+					7E3B7B17225A48C100261F51 = {
+						CreatedOnToolsVersion = 10.2;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 0;
+							};
+						};
+					};
+				};
+			};
+			buildConfigurationList = 7E3B7B13225A48C100261F51 /* Build configuration list for PBXProject "MobileGestaltDemo" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 7E3B7B0F225A48C100261F51;
+			productRefGroup = 7E3B7B19225A48C100261F51 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7E3B7B17225A48C100261F51 /* MobileGestaltDemo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7E3B7B16225A48C100261F51 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7E3B7B28225A48C300261F51 /* LaunchScreen.storyboard in Resources */,
+				7E3B7B25225A48C300261F51 /* Assets.xcassets in Resources */,
+				7E30D708225C4B4A00D0BE43 /* sign.mobileconfig in Resources */,
+				7E3B7B23225A48C100261F51 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		A2715984A9C7DDD498A34E14 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MobileGestaltDemo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7E3B7B14225A48C100261F51 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7E3B7B37225A49C100261F51 /* MGRequest.m in Sources */,
+				7EA9FA44225B82DB008555DA /* MGError.m in Sources */,
+				7E3B7B20225A48C100261F51 /* ViewController.m in Sources */,
+				7EA9FA41225B7C0C008555DA /* MGUtils.m in Sources */,
+				7E3B7B2B225A48C300261F51 /* main.m in Sources */,
+				7E3B7B34225A49B600261F51 /* MGSession.m in Sources */,
+				7E3B7B1D225A48C100261F51 /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		7E3B7B21225A48C100261F51 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7E3B7B22225A48C100261F51 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		7E3B7B26225A48C300261F51 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7E3B7B27225A48C300261F51 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		7E3B7B2C225A48C300261F51 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		7E3B7B2D225A48C300261F51 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		7E3B7B2F225A48C300261F51 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7481E0DBC8054AF227AA4518 /* Pods-MobileGestaltDemo.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = D225N2EYEE;
+				INFOPLIST_FILE = MobileGestaltDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.unique.MobileGestaltDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = luckyAllCanrundev;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		7E3B7B30225A48C300261F51 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7A2249673B1C4E8A792C1987 /* Pods-MobileGestaltDemo.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = D225N2EYEE;
+				INFOPLIST_FILE = MobileGestaltDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.unique.MobileGestaltDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = luckyAllCanrundev;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7E3B7B13225A48C100261F51 /* Build configuration list for PBXProject "MobileGestaltDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7E3B7B2C225A48C300261F51 /* Debug */,
+				7E3B7B2D225A48C300261F51 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7E3B7B2E225A48C300261F51 /* Build configuration list for PBXNativeTarget "MobileGestaltDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7E3B7B2F225A48C300261F51 /* Debug */,
+				7E3B7B30225A48C300261F51 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 7E3B7B10225A48C100261F51 /* Project object */;
+}
