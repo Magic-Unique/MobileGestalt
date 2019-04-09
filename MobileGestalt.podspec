@@ -30,7 +30,7 @@ Pod::Spec.new do |s|
   - Use signed profile
                    DESC
 
-  s.homepage     = "https://github.com/Magic-Unique/MUMobileGestalt"
+  s.homepage     = "https://github.com/Magic-Unique/MobileGestalt"
   # s.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
 
 
@@ -82,7 +82,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://github.com/Magic-Unique/MUMobileGestalt.git", :tag => "#{s.version}" }
+  s.source       = { :git => "https://github.com/Magic-Unique/MobileGestalt.git", :tag => "#{s.version}" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
