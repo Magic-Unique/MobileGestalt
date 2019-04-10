@@ -14,6 +14,7 @@
 
 #import "MGRequest.h"
 #import "MGRequest+Private.h"
+#import "MGTask.h"
 #import "MGError.h"
 
 #define MGWeak(obj)     __weak typeof(obj) weak_##obj = obj
@@ -31,9 +32,10 @@ void MGOpenURL(NSURL *URL, void (^completed)(BOOL success)) {
     if (@available(iOS 10.0, *)) {
         [[UIApplication sharedApplication] openURL:URL options:@{} completionHandler:completed];
     } else {
+        BOOL success = NO;
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
-        BOOL success = [[UIApplication sharedApplication] openURL:URL];
+        success = [[UIApplication sharedApplication] openURL:URL];
 #pragma clang diagnostic pop
         !completed?:completed(success);
     }
@@ -43,10 +45,7 @@ void MGOpenURL(NSURL *URL, void (^completed)(BOOL success)) {
 
 @property (nonatomic, strong, readonly) GCDWebServer *server;
 
-@property (nonatomic, strong, readonly) MGRequest *currentRequest;
-@property (nonatomic, strong, readonly) MGResponse *currentResponse;
-@property (nonatomic, strong, readonly) NSError *currentError;
-@property (nonatomic, copy, readonly) MGCompletion currentCompletion;
+@property (nonatomic, strong, readonly) MGTask *task;
 @property (nonatomic, assign, readonly) UIBackgroundTaskIdentifier bgTaskId;
 
 @end
@@ -121,9 +120,7 @@ void MGOpenURL(NSURL *URL, void (^completed)(BOOL success)) {
 }
 
 - (void)applicationWillEnterForeground:(NSNotification *)notification {
-    if (self.currentRequest && !self.currentResponse && !self.currentError) {
-        [self __markError:MGCancelByUserError()];
-    }
+    [self.task applicationWillEnterForeground];
     [self __completion];
     
     if (self.bgTaskId != UIBackgroundTaskInvalid) {
@@ -136,8 +133,7 @@ void MGOpenURL(NSURL *URL, void (^completed)(BOOL success)) {
     if (![request isKindOfClass:[MGRequest class]] && [request isMemberOfClass:[MGRequest class]]) {
         NSAssert(NO, @"Request must subclass of MGRequest, use +[MGRequest requestWith...] to create instance.");
     }
-    _currentRequest = request;
-    _currentCompletion = [completed copy];
+    _task = [MGTask taskWithRequest:request completion:completed];
     
     MGWeak(self);
     MGRunInMain(^{
@@ -180,24 +176,23 @@ void MGOpenURL(NSURL *URL, void (^completed)(BOOL success)) {
                     processBlock:^GCDWebServerResponse *(GCDWebServerDataRequest* request) {
                         MGStrong(self);
                         
-                        if ([self.currentRequest isKindOfClass:[MGURLRequest class]]) {
-                            MGURLRequest *_request = (MGURLRequest *)self.currentRequest;
+                        if ([self.task.request isKindOfClass:[MGURLRequest class]]) {
+                            MGURLRequest *_request = (MGURLRequest *)self.task.request;
                             if (_request.URL) {
                                 return [GCDWebServerResponse responseWithRedirect:_request.URL permanent:YES];
                             }
                         }
                         
                         NSData *data = nil;
-                        if ([self.currentRequest isKindOfClass:[MGCustomRequest class]]) {
-                            MGCustomRequest *_request = (MGCustomRequest *)self.currentRequest;
+                        if ([self.task.request isKindOfClass:[MGCustomRequest class]]) {
+                            MGCustomRequest *_request = (MGCustomRequest *)self.task.request;
                             data = [self __mobileConfigDataWithRequest:_request];
-                        } else if ([self.currentRequest isKindOfClass:[MGDataRequest class]]) {
-                            MGDataRequest *_request = (MGDataRequest *)self.currentRequest;
+                        } else if ([self.task.request isKindOfClass:[MGDataRequest class]]) {
+                            MGDataRequest *_request = (MGDataRequest *)self.task.request;
                             if (_request.data) {
                                 data = _request.data;
                             }
                         }
-                        
                         return [[GCDWebServerDataResponse alloc] initWithData:data contentType:@"application/x-apple-aspen-config"];
                     }];
     [_server addHandlerForMethod:@"POST"
@@ -229,34 +224,17 @@ void MGOpenURL(NSURL *URL, void (^completed)(BOOL success)) {
 
 - (void)__markError:(NSError *)error {
     NSLog(@"MobileGestalt: Receive error %@", error);
-    _currentError = error;
+    [self.task markError:error];
 }
 
 - (void)__markResponse:(MGResponse *)response {
     NSLog(@"MobileGestalt: Receive informations %@", response.data);
-    _currentResponse = response;
+    [self.task markResponse:response];
 }
 
 - (void)__completion {
-    if (self.currentRequest) {
-        MGRequest *request = self.currentRequest;
-        if (self.currentCompletion) {
-            if (self.currentResponse) {
-                self.currentCompletion(request, self.currentResponse, nil);
-            }
-            else if (self.currentError) {
-                self.currentCompletion(request, nil, self.currentError);
-            }
-            else {
-                NSError *error = MGCancelByUserError();
-                self.currentCompletion(request, nil, error);
-            }
-        }
-    }
-    self->_currentError = nil;
-    self->_currentCompletion = nil;
-    self->_currentRequest = nil;
-    self->_currentResponse = nil;
+    [self.task sendCompletion];
+    _task = nil;
 }
 
 - (NSData *)__mobileConfigDataWithRequest:(MGCustomRequest *)request {

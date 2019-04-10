@@ -15,10 +15,11 @@
 		7E3B7B25225A48C300261F51 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7E3B7B24225A48C300261F51 /* Assets.xcassets */; };
 		7E3B7B28225A48C300261F51 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E3B7B26225A48C300261F51 /* LaunchScreen.storyboard */; };
 		7E3B7B2B225A48C300261F51 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E3B7B2A225A48C300261F51 /* main.m */; };
-		7E3B7B34225A49B600261F51 /* MGSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E3B7B33225A49B600261F51 /* MGSession.m */; };
-		7E3B7B37225A49C100261F51 /* MGRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E3B7B36225A49C100261F51 /* MGRequest.m */; };
-		7EA9FA41225B7C0C008555DA /* MGUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EA9FA40225B7C0C008555DA /* MGUtils.m */; };
-		7EA9FA44225B82DB008555DA /* MGError.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EA9FA43225B82DB008555DA /* MGError.m */; };
+		7EA83BF1225D8CC600A595D7 /* MGError.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EA83BE6225D8CC600A595D7 /* MGError.m */; };
+		7EA83BF2225D8CC600A595D7 /* MGUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EA83BE7225D8CC600A595D7 /* MGUtils.m */; };
+		7EA83BF3225D8CC600A595D7 /* MGSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EA83BE9225D8CC600A595D7 /* MGSession.m */; };
+		7EA83BF4225D8CC600A595D7 /* MGRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EA83BEA225D8CC600A595D7 /* MGRequest.m */; };
+		7EA83BF7225D8CE600A595D7 /* MGTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EA83BF6225D8CE600A595D7 /* MGTask.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,16 +36,18 @@
 		7E3B7B27225A48C300261F51 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7E3B7B29225A48C300261F51 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7E3B7B2A225A48C300261F51 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		7E3B7B32225A49B600261F51 /* MGSession.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MGSession.h; sourceTree = "<group>"; };
-		7E3B7B33225A49B600261F51 /* MGSession.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MGSession.m; sourceTree = "<group>"; };
-		7E3B7B35225A49C100261F51 /* MGRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MGRequest.h; sourceTree = "<group>"; };
-		7E3B7B36225A49C100261F51 /* MGRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MGRequest.m; sourceTree = "<group>"; };
-		7EA83BE0225D870700A595D7 /* MGRequest+Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MGRequest+Private.h"; sourceTree = "<group>"; };
-		7EA9FA3F225B7C0C008555DA /* MGUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MGUtils.h; sourceTree = "<group>"; };
-		7EA9FA40225B7C0C008555DA /* MGUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MGUtils.m; sourceTree = "<group>"; };
-		7EA9FA42225B82DB008555DA /* MGError.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MGError.h; sourceTree = "<group>"; };
-		7EA9FA43225B82DB008555DA /* MGError.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MGError.m; sourceTree = "<group>"; };
-		7EA9FA45225B92C0008555DA /* MobileGestalt.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MobileGestalt.h; sourceTree = "<group>"; };
+		7EA83BE6225D8CC600A595D7 /* MGError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGError.m; sourceTree = "<group>"; };
+		7EA83BE7225D8CC600A595D7 /* MGUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGUtils.m; sourceTree = "<group>"; };
+		7EA83BE8225D8CC600A595D7 /* MobileGestalt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobileGestalt.h; sourceTree = "<group>"; };
+		7EA83BE9225D8CC600A595D7 /* MGSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGSession.m; sourceTree = "<group>"; };
+		7EA83BEA225D8CC600A595D7 /* MGRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGRequest.m; sourceTree = "<group>"; };
+		7EA83BEB225D8CC600A595D7 /* MGUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGUtils.h; sourceTree = "<group>"; };
+		7EA83BEC225D8CC600A595D7 /* MGError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGError.h; sourceTree = "<group>"; };
+		7EA83BED225D8CC600A595D7 /* MGSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGSession.h; sourceTree = "<group>"; };
+		7EA83BEE225D8CC600A595D7 /* MGRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGRequest.h; sourceTree = "<group>"; };
+		7EA83BF0225D8CC600A595D7 /* MGRequest+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MGRequest+Private.h"; sourceTree = "<group>"; };
+		7EA83BF5225D8CE600A595D7 /* MGTask.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MGTask.h; sourceTree = "<group>"; };
+		7EA83BF6225D8CE600A595D7 /* MGTask.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MGTask.m; sourceTree = "<group>"; };
 		9AC92B0887D7823F66262BC5 /* libPods-MobileGestaltDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MobileGestaltDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -89,7 +92,7 @@
 		7E3B7B1A225A48C100261F51 /* MobileGestaltDemo */ = {
 			isa = PBXGroup;
 			children = (
-				7E3B7B31225A493800261F51 /* MobileGestalt */,
+				7EA83BE3225D8CC600A595D7 /* MobileGestalt */,
 				7E3B7B1B225A48C100261F51 /* AppDelegate.h */,
 				7E3B7B1C225A48C100261F51 /* AppDelegate.m */,
 				7E3B7B1E225A48C100261F51 /* ViewController.h */,
@@ -104,22 +107,48 @@
 			path = MobileGestaltDemo;
 			sourceTree = "<group>";
 		};
-		7E3B7B31225A493800261F51 /* MobileGestalt */ = {
+		7EA83BE3225D8CC600A595D7 /* MobileGestalt */ = {
 			isa = PBXGroup;
 			children = (
-				7EA9FA45225B92C0008555DA /* MobileGestalt.h */,
-				7E3B7B32225A49B600261F51 /* MGSession.h */,
-				7E3B7B33225A49B600261F51 /* MGSession.m */,
-				7E3B7B35225A49C100261F51 /* MGRequest.h */,
-				7E3B7B36225A49C100261F51 /* MGRequest.m */,
-				7EA83BE0225D870700A595D7 /* MGRequest+Private.h */,
-				7EA9FA3F225B7C0C008555DA /* MGUtils.h */,
-				7EA9FA40225B7C0C008555DA /* MGUtils.m */,
-				7EA9FA42225B82DB008555DA /* MGError.h */,
-				7EA9FA43225B82DB008555DA /* MGError.m */,
+				7EA83BE4225D8CC600A595D7 /* Classes */,
 			);
 			name = MobileGestalt;
 			path = ../../MobileGestalt;
+			sourceTree = "<group>";
+		};
+		7EA83BE4225D8CC600A595D7 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				7EA83BE5225D8CC600A595D7 /* Public */,
+				7EA83BEF225D8CC600A595D7 /* Private */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		7EA83BE5225D8CC600A595D7 /* Public */ = {
+			isa = PBXGroup;
+			children = (
+				7EA83BEC225D8CC600A595D7 /* MGError.h */,
+				7EA83BE6225D8CC600A595D7 /* MGError.m */,
+				7EA83BEE225D8CC600A595D7 /* MGRequest.h */,
+				7EA83BEA225D8CC600A595D7 /* MGRequest.m */,
+				7EA83BED225D8CC600A595D7 /* MGSession.h */,
+				7EA83BE9225D8CC600A595D7 /* MGSession.m */,
+				7EA83BEB225D8CC600A595D7 /* MGUtils.h */,
+				7EA83BE7225D8CC600A595D7 /* MGUtils.m */,
+				7EA83BE8225D8CC600A595D7 /* MobileGestalt.h */,
+			);
+			path = Public;
+			sourceTree = "<group>";
+		};
+		7EA83BEF225D8CC600A595D7 /* Private */ = {
+			isa = PBXGroup;
+			children = (
+				7EA83BF0225D8CC600A595D7 /* MGRequest+Private.h */,
+				7EA83BF5225D8CE600A595D7 /* MGTask.h */,
+				7EA83BF6225D8CE600A595D7 /* MGTask.m */,
+			);
+			path = Private;
 			sourceTree = "<group>";
 		};
 		C7B8276E55A1E6DFA2E81BBE /* Pods */ = {
@@ -234,12 +263,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7E3B7B37225A49C100261F51 /* MGRequest.m in Sources */,
-				7EA9FA44225B82DB008555DA /* MGError.m in Sources */,
+				7EA83BF3225D8CC600A595D7 /* MGSession.m in Sources */,
+				7EA83BF2225D8CC600A595D7 /* MGUtils.m in Sources */,
+				7EA83BF7225D8CE600A595D7 /* MGTask.m in Sources */,
 				7E3B7B20225A48C100261F51 /* ViewController.m in Sources */,
-				7EA9FA41225B7C0C008555DA /* MGUtils.m in Sources */,
 				7E3B7B2B225A48C300261F51 /* main.m in Sources */,
-				7E3B7B34225A49B600261F51 /* MGSession.m in Sources */,
+				7EA83BF4225D8CC600A595D7 /* MGRequest.m in Sources */,
+				7EA83BF1225D8CC600A595D7 /* MGError.m in Sources */,
 				7E3B7B1D225A48C100261F51 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

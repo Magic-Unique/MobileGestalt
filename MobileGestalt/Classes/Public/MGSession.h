@@ -7,10 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "MGUtils.h"
 
 @class MGRequest, MGResponse;
-
-typedef void(^MGCompletion)(MGRequest *request, MGResponse *response, NSError *error);
 
 @interface MGSessionConfiguration : NSObject
 
