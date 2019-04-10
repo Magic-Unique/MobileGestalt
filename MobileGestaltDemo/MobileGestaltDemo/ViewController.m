@@ -30,6 +30,7 @@
     
     MGSessionConfiguration *configuration = [MGSessionConfiguration defaultConfiguration];
     configuration.port = 10418;
+    configuration.log = YES;
     _session = [MGSession sessionWithConfiguration:configuration];
     
     if (self.session.error) {

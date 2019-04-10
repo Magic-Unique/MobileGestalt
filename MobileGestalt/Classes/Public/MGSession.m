@@ -177,6 +177,10 @@ void MGOpenURL(NSURL *URL, void (^completed)(BOOL success)) {
                     requestClass:[GCDWebServerDataRequest class]
                     processBlock:^GCDWebServerResponse *(GCDWebServerDataRequest* request) {
                         MGStrong(self);
+                        if (!self.task) {
+                            MGLog(@"Current task is nil, respond with 404");
+                            return [GCDWebServerResponse responseWithStatusCode:404];
+                        }
                         
                         if ([self.task.request isKindOfClass:[MGURLRequest class]]) {
                             MGURLRequest *_request = (MGURLRequest *)self.task.request;
@@ -206,6 +210,10 @@ void MGOpenURL(NSURL *URL, void (^completed)(BOOL success)) {
                     requestClass:[GCDWebServerDataRequest class]
                     processBlock:^GCDWebServerResponse *(GCDWebServerDataRequest *request) {
                         MGStrong(self);
+                        if (!self.task) {
+                            MGLog(@"Current task is nil, respond with 404");
+                            return [GCDWebServerResponse responseWithStatusCode:404];
+                        }
                         
                         MGResponse *response = [MGResponse responseWithData:request.data];
                         [self __markResponse:response];
@@ -281,6 +289,9 @@ void MGOpenURL(NSURL *URL, void (^completed)(BOOL success)) {
 
 + (instancetype)defaultConfiguration {
     MGSessionConfiguration *configuration = [[MGSessionConfiguration alloc] init];
+#if DEBUG == 1
+    configuration.log = YES;
+#endif
     return configuration;
 }
 
