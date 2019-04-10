@@ -13,6 +13,7 @@
 #import <GCDWebServer/GCDWebServerDataResponse.h>
 
 #import "MGRequest.h"
+#import "MGRequest+Private.h"
 #import "MGError.h"
 
 #define MGWeak(obj)     __weak typeof(obj) weak_##obj = obj
@@ -37,18 +38,6 @@ void MGOpenURL(NSURL *URL, void (^completed)(BOOL success)) {
         !completed?:completed(success);
     }
 }
-
-@interface MGCustomRequest : MGRequest
-
-@end
-
-@interface MGNormalRequest : MGRequest
-
-@property (nonatomic, strong, readonly) NSURL *fileURL;
-
-@property (nonatomic, strong, readonly) NSData *fileData;
-
-@end
 
 @interface MGSession () <GCDWebServerDelegate>
 
@@ -98,7 +87,7 @@ void MGOpenURL(NSURL *URL, void (^completed)(BOOL success)) {
         _enable = result;
         if (!result) {
             _error = error;
-            NSLog(@"MobileGestalt: Server dos not running");
+            NSLog(@"MobileGestalt: Server can not running");
         } else {
             [self installUIApplicationDelegate:YES];
         }
@@ -144,57 +133,39 @@ void MGOpenURL(NSURL *URL, void (^completed)(BOOL success)) {
 }
 
 - (void)request:(MGRequest *)request completed:(MGCompletion)completed {
-    if (![request isKindOfClass:[MGCustomRequest class]] && ![request isKindOfClass:[MGNormalRequest class]]) {
-        NSAssert(NO, @"Request must an instance of MGCustomRequest or MGNormalRequest, use +[MGRequest request] to create instance.");
+    if (![request isKindOfClass:[MGRequest class]] && [request isMemberOfClass:[MGRequest class]]) {
+        NSAssert(NO, @"Request must subclass of MGRequest, use +[MGRequest requestWith...] to create instance.");
     }
     _currentRequest = request;
     _currentCompletion = [completed copy];
     
     MGWeak(self);
-    
-    if (!self.server.isRunning) {
-        MGRunInMain(^{
-            MGStrong(self);
-            NSError *error = MGServerIsnotRunningError();
-            [self __markError:error];
-            [self __completion];
-        });
-        return;
-    }
-    
     MGRunInMain(^{
         MGStrong(self);
         
-        //  Begin background task
-        self->_bgTaskId = [[UIApplication sharedApplication] beginBackgroundTaskWithName:@"com.unique.MobileGestalt" expirationHandler:^{
-            MGStrong(self);
-            NSError *error = MGBackgroundTaskTimeoutError();
-            self->_bgTaskId = UIBackgroundTaskInvalid;
-            [self __markError:error];
-            [self __completion];
-        }];
-        if (self.bgTaskId == UIBackgroundTaskInvalid) {
-            NSError *error = MGCannotBeginBackgroundTaskError();
-            [self __markError:error];
+        if (!self.server.isRunning) {
+            [self __markError:MGServerIsnotRunningError()];
             [self __completion];
             return ;
         }
         
-        NSURL *openURL = ({
-            NSURL *openURL = [NSURL URLWithString:[self __mobileConfigURL]];
-            if ([request isKindOfClass:[MGNormalRequest class]]) {
-                MGNormalRequest *_request = (MGNormalRequest *)request;
-                if (_request.fileURL) {
-                    openURL = _request.fileURL;
-                }
-            }
-            openURL;
-        });
-        MGOpenURL(openURL, ^(BOOL success) {
+        //  Begin background task
+        self->_bgTaskId = [[UIApplication sharedApplication] beginBackgroundTaskWithName:@"com.unique.MobileGestalt" expirationHandler:^{
+            MGStrong(self);
+            self->_bgTaskId = UIBackgroundTaskInvalid;
+            [self __markError:MGBackgroundTaskTimeoutError()];
+            [self __completion];
+        }];
+        if (self.bgTaskId == UIBackgroundTaskInvalid) {
+            [self __markError:MGCannotBeginBackgroundTaskError()];
+            [self __completion];
+            return ;
+        }
+        
+        MGOpenURL([NSURL URLWithString:[self __mobileConfigURL]], ^(BOOL success) {
             if (!success) {
                 MGStrong(self)
-                NSError *error = MGCannotOpenMobileConfigURLError();
-                [self __markError:error];
+                [self __markError:MGCannotOpenMobileConfigURLError()];
                 [self __completion];
             }
         });
@@ -209,14 +180,21 @@ void MGOpenURL(NSURL *URL, void (^completed)(BOOL success)) {
                     processBlock:^GCDWebServerResponse *(GCDWebServerDataRequest* request) {
                         MGStrong(self);
                         
+                        if ([self.currentRequest isKindOfClass:[MGURLRequest class]]) {
+                            MGURLRequest *_request = (MGURLRequest *)self.currentRequest;
+                            if (_request.URL) {
+                                return [GCDWebServerResponse responseWithRedirect:_request.URL permanent:YES];
+                            }
+                        }
+                        
                         NSData *data = nil;
                         if ([self.currentRequest isKindOfClass:[MGCustomRequest class]]) {
                             MGCustomRequest *_request = (MGCustomRequest *)self.currentRequest;
                             data = [self __mobileConfigDataWithRequest:_request];
-                        } else if ([self.currentRequest isKindOfClass:[MGNormalRequest class]]) {
-                            MGNormalRequest *_request = (MGNormalRequest *)self.currentRequest;
-                            if (_request.fileData) {
-                                data = _request.fileData;
+                        } else if ([self.currentRequest isKindOfClass:[MGDataRequest class]]) {
+                            MGDataRequest *_request = (MGDataRequest *)self.currentRequest;
+                            if (_request.data) {
+                                data = _request.data;
                             }
                         }
                         

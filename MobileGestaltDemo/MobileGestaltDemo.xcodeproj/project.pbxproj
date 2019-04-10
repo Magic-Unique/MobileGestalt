@@ -39,6 +39,7 @@
 		7E3B7B33225A49B600261F51 /* MGSession.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MGSession.m; sourceTree = "<group>"; };
 		7E3B7B35225A49C100261F51 /* MGRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MGRequest.h; sourceTree = "<group>"; };
 		7E3B7B36225A49C100261F51 /* MGRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MGRequest.m; sourceTree = "<group>"; };
+		7EA83BE0225D870700A595D7 /* MGRequest+Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MGRequest+Private.h"; sourceTree = "<group>"; };
 		7EA9FA3F225B7C0C008555DA /* MGUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MGUtils.h; sourceTree = "<group>"; };
 		7EA9FA40225B7C0C008555DA /* MGUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MGUtils.m; sourceTree = "<group>"; };
 		7EA9FA42225B82DB008555DA /* MGError.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MGError.h; sourceTree = "<group>"; };
@@ -111,6 +112,7 @@
 				7E3B7B33225A49B600261F51 /* MGSession.m */,
 				7E3B7B35225A49C100261F51 /* MGRequest.h */,
 				7E3B7B36225A49C100261F51 /* MGRequest.m */,
+				7EA83BE0225D870700A595D7 /* MGRequest+Private.h */,
 				7EA9FA3F225B7C0C008555DA /* MGUtils.h */,
 				7EA9FA40225B7C0C008555DA /* MGUtils.m */,
 				7EA9FA42225B82DB008555DA /* MGError.h */,

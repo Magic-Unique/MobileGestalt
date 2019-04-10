@@ -101,10 +101,7 @@
     if (indexPath.section == 0) {
         MGRequest *request = nil;
         if (indexPath.row == 0) {
-            request = [MGRequest request];
-            request.organization = @"Magic-Unique";
-            request.displayName = @"MobileGestalt";
-            request.explain = @"Get device UDID.";
+            request = [MGRequest requestWithTitle:@"Mobile Gestalt" subtitle:@"by Magic-Unique" description:@"Get device UDID, IMEI, ICCID, Version and Product"];
         } else {
             NSString *path = [NSBundle.mainBundle pathForResource:@"sign" ofType:@"mobileconfig"];
             NSData *data = [NSData dataWithContentsOfFile:path];

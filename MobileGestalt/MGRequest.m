@@ -7,57 +7,33 @@
 //
 
 #import "MGRequest.h"
-
-@interface MGCustomRequest : MGRequest
-
-@end
-
-@interface MGNormalRequest : MGRequest
-
-@property (nonatomic, strong, readonly) NSURL *fileURL;
-
-@property (nonatomic, strong, readonly) NSData *fileData;
-
-@end
+#import "MGRequest+Private.h"
 
 @implementation MGRequest
 
-+ (instancetype)request {
-    return [MGCustomRequest request];
-}
-
-+ (instancetype)requestWithAttributes:(NSArray<MGAttribute> *)attributes {
-    NSParameterAssert(attributes);
-    return [MGCustomRequest requestWithAttributes:attributes];
++ (instancetype)requestWithTitle:(NSString *)title subtitle:(NSString *)subtitle description:(NSString *)description {
+    return [MGCustomRequest requestWithTitle:title subtitle:subtitle description:description];
 }
 
 + (instancetype)requestWithMobileConfigURL:(NSURL *)URL {
     NSParameterAssert(URL);
-    return [MGNormalRequest requestWithMobileConfigURL:URL];
+    return [MGURLRequest requestWithMobileConfigURL:URL];
 }
 
 + (instancetype)requestWithMobileConfigData:(NSData *)data {
     NSParameterAssert(data);
-    return [MGNormalRequest requestWithMobileConfigData:data];
+    return [MGDataRequest requestWithMobileConfigData:data];
 }
 
 @end
 
 @implementation MGCustomRequest
 
-+ (MGCustomRequest *)request {
-    NSArray<MGAttribute> *attributes = @[MGAttributeUDID,
-                                         MGAttributeIMEI,
-                                         MGAttributeICCID,
-                                         MGAttributeVersion,
-                                         MGAttributeProduct];
-    return [self requestWithAttributes:attributes];
-}
-
-+ (instancetype)requestWithAttributes:(NSArray<MGAttribute> *)attributes {
-    NSParameterAssert(attributes);
++ (instancetype)requestWithTitle:(NSString *)title subtitle:(NSString *)subtitle description:(NSString *)description {
     MGCustomRequest *request = [[self alloc] init];
-    request.attributes = attributes;
+    request.displayName = title;
+    request.organization = subtitle;
+    request.explain = description;
     return request;
 }
 
@@ -81,30 +57,34 @@
 
 @end
 
-@implementation MGNormalRequest
+@implementation MGURLRequest
 
 + (instancetype)requestWithMobileConfigURL:(NSURL *)URL {
     NSParameterAssert(URL);
     return [[self alloc] initWithMobileConfigURL:URL];
 }
 
+- (instancetype)initWithMobileConfigURL:(NSURL *)URL {
+    self = [super init];
+    if (self) {
+        _URL = URL;
+    }
+    return self;
+}
+
+@end
+
+@implementation MGDataRequest
+
 + (instancetype)requestWithMobileConfigData:(NSData *)data {
     NSParameterAssert(data);
     return [[self alloc] initWithMobileConfigData:data];
 }
 
-- (instancetype)initWithMobileConfigURL:(NSURL *)URL {
-    self = [super init];
-    if (self) {
-        _fileURL = URL;
-    }
-    return self;
-}
-
 - (instancetype)initWithMobileConfigData:(NSData *)data {
     self = [super init];
     if (self) {
-        _fileData = data;
+        _data = data;
     }
     return self;
 }

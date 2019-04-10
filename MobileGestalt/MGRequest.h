@@ -56,20 +56,16 @@
  */
 @property (nonatomic, strong) NSUUID *UUID;
 
+
 /**
  Create custom request with default value
 
+ @param title DisplayName
+ @param subtitle Organization
+ @param description Explain
  @return MGRequest
  */
-+ (instancetype)request;
-
-/**
- Creat custom request with attributes
-
- @param attributes [MGAttributes]
- @return MGRequest
- */
-+ (instancetype)requestWithAttributes:(NSArray<MGAttribute> *)attributes;
++ (instancetype)requestWithTitle:(NSString *)title subtitle:(NSString *)subtitle description:(NSString *)description;
 
 /**
  Create request with *.mobileconfig URL
