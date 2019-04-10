@@ -32,6 +32,10 @@ NSError *MGCannotOpenMobileConfigURLError(void) {
     return MGMakeError(MGErrorCodeCannotOpenMobileConfigURL, @"Call -[UIApplication openURL:] failed.", @"Restart app or reboot device, then try again.");
 }
 
+NSError *MGMobileConfigDataIsNilError(void) {
+    return MGMakeError(MGErrorCodeMobileConfigDataIsNil, @"MGRequest does not contains a data for *.mobileconfig response", @"Create a MGRequest with property or an URL or a local data");
+}
+
 NSError *MGBackgroundTaskTimeoutError(void) {
     return MGMakeError(MGErrorCodeBackgroundTaskTimeout, @"Background task was expired.", @"Install file quickly.");
 }

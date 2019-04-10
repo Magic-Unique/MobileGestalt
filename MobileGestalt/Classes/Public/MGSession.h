@@ -46,6 +46,8 @@
  */
 @property (nonatomic, strong) NSString *callbackScheme;
 
+@property (nonatomic, assign) BOOL log;
+
 /**
  Configuration with default value
 
@@ -75,6 +77,11 @@
  Server error for starting.
  */
 @property (nonatomic, strong, readonly) NSError *error;
+
+/**
+ Server port
+ */
+@property (nonatomic, assign, readonly) NSUInteger port;
 
 /**
  Create session with configuration

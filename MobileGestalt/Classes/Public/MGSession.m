@@ -20,6 +20,8 @@
 #define MGWeak(obj)     __weak typeof(obj) weak_##obj = obj
 #define MGStrong(obj)   __strong typeof(weak_##obj) obj = weak_##obj;
 
+#define MGLog(...) do { if (self.configuration.log) { NSLog(@"MobileGestalt: %@", [NSString stringWithFormat:__VA_ARGS__]); }} while(0);
+
 void MGRunInMain(void (^block)(void)) {
     if ([NSThread isMainThread]) {
         block();
@@ -76,17 +78,17 @@ void MGOpenURL(NSURL *URL, void (^completed)(BOOL success)) {
                                                      GCDWebServerOption_BindToLocalhost:@YES,
                                                      GCDWebServerOption_AutomaticallySuspendInBackground:@NO} error:&error];
             if (result) {
-                NSLog(@"MobileGestalt: Server is running in port %@", @(self.server.port));
+                MGLog(@"Server is running in port %@", @(self.server.port));
                 break;
             } else {
-                NSLog(@"MobileGestalt: Server can not running in port %@", @(port));
+                MGLog(@"Server can not running in port %@", @(port));
             }
             port++;
         } while (port < configuration.port + configuration.portOffset);
         _enable = result;
         if (!result) {
             _error = error;
-            NSLog(@"MobileGestalt: Server can not running");
+            MGLog(@"Server can not running");
         } else {
             [self installUIApplicationDelegate:YES];
         }
@@ -193,6 +195,10 @@ void MGOpenURL(NSURL *URL, void (^completed)(BOOL success)) {
                                 data = _request.data;
                             }
                         }
+                        if (!data) {
+                            [self __markError:MGMobileConfigDataIsNilError()];
+                            return [GCDWebServerDataResponse responseWithStatusCode:404];
+                        }
                         return [[GCDWebServerDataResponse alloc] initWithData:data contentType:@"application/x-apple-aspen-config"];
                     }];
     [_server addHandlerForMethod:@"POST"
@@ -212,7 +218,7 @@ void MGOpenURL(NSURL *URL, void (^completed)(BOOL success)) {
                                 [datas addObject:[NSString stringWithFormat:@"%@=%@", key, obj]];
                             }];
                             NSString *parames = [datas componentsJoinedByString:@"&"];
-                            URL = [NSString stringWithFormat:@"%@://mobilegestalt.org?%@", scheme, parames];
+                            URL = [NSString stringWithFormat:@"%@://mobilegestalt?%@", scheme, parames];
                             URL = [URL stringByAddingPercentEncodingWithAllowedCharacters:NSCharacterSet.URLQueryAllowedCharacterSet];
                         } else {
                             URL = UIApplicationOpenSettingsURLString;
@@ -223,12 +229,12 @@ void MGOpenURL(NSURL *URL, void (^completed)(BOOL success)) {
 }
 
 - (void)__markError:(NSError *)error {
-    NSLog(@"MobileGestalt: Receive error %@", error);
+    MGLog(@"Receive error %@", error);
     [self.task markError:error];
 }
 
 - (void)__markResponse:(MGResponse *)response {
-    NSLog(@"MobileGestalt: Receive informations %@", response.data);
+    MGLog(@"Receive informations %@", response.data);
     [self.task markResponse:response];
 }
 
@@ -261,17 +267,20 @@ void MGOpenURL(NSURL *URL, void (^completed)(BOOL success)) {
     return URL;
 }
 
+- (NSUInteger)port {
+    if (self.enable) {
+        return self.server.port;
+    } else {
+        return 0;
+    }
+}
+
 @end
 
 @implementation MGSessionConfiguration
 
 + (instancetype)defaultConfiguration {
     MGSessionConfiguration *configuration = [[MGSessionConfiguration alloc] init];
-    configuration.port = 10418;
-    configuration.portOffset = 0;
-    configuration.mobileConfigPath = @"/MobileGestalt/mdm.mobileconfig";
-    configuration.registerPath = @"/MobileGestalt/register";
-    configuration.callbackScheme = @"mobilegestalt";
     return configuration;
 }
 
