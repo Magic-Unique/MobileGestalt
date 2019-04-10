@@ -14,35 +14,35 @@
 /**
  The device info key.
  */
-@property (nonatomic, strong) NSArray<MGAttribute> *attributes;
+@property (nonatomic, strong, nonnull) NSArray<MGAttribute> *attributes;
 
 /**
  Profile display name
  
  Default is CFBundleDisplayName
  */
-@property (nonatomic, strong) NSString *displayName;
+@property (nonatomic, strong, nonnull) NSString *displayName;
 
 /**
  Profile organization
  
  Default is `Mobile Gestalt`
  */
-@property (nonatomic, strong) NSString *organization;
+@property (nonatomic, strong, nullable) NSString *organization;
 
 /**
  Profile description
  
  Default is `Install the profile to get your device info.`
  */
-@property (nonatomic, strong) NSString *explain;
+@property (nonatomic, strong, nullable) NSString *explain;
 
 /**
  Profile unique identifier
  
  Default is `{NSBundle.mainBundle.bundleIdentifier}.mobilegestalt`
  */
-@property (nonatomic, strong) NSString *identifier;
+@property (nonatomic, strong, nonnull) NSString *identifier;
 
 /**
  Profile version
@@ -54,7 +54,7 @@
 /**
  Profile UUID
  */
-@property (nonatomic, strong) NSUUID *UUID;
+@property (nonatomic, strong, nonnull) NSUUID *UUID;
 
 
 /**
@@ -65,7 +65,7 @@
  @param description Explain
  @return MGRequest
  */
-+ (instancetype)requestWithTitle:(NSString *)title subtitle:(NSString *)subtitle description:(NSString *)description;
++ (instancetype _Nonnull)requestWithTitle:(NSString * _Nonnull)title subtitle:(NSString * _Nullable)subtitle description:(NSString * _Nullable)description;
 
 /**
  Create request with *.mobileconfig URL
@@ -73,7 +73,7 @@
  @param URL NSURL
  @return MGRequest
  */
-+ (instancetype)requestWithMobileConfigURL:(NSURL *)URL;
++ (instancetype _Nonnull)requestWithMobileConfigURL:(NSURL * _Nonnull)URL;
 
 /**
  Create request with *.mobileconfig data
@@ -81,7 +81,7 @@
  @param data NSData
  @return MGRequest
  */
-+ (instancetype)requestWithMobileConfigData:(NSData *)data;
++ (instancetype _Nonnull)requestWithMobileConfigData:(NSData * _Nonnull)data;
 
 @end
 
@@ -90,14 +90,14 @@
 /**
  Device info.
  */
-@property (nonatomic, strong, readonly) NSDictionary<MGAttribute, NSString *> *data;
+@property (nonatomic, strong, readonly, nonnull) NSDictionary<MGAttribute, NSString *> *data;
 
-@property (nonatomic, strong, readonly) NSString *UDID;
-@property (nonatomic, strong, readonly) NSString *IMEI;
-@property (nonatomic, strong, readonly) NSString *ICCID;    ///< Maybe nil
-@property (nonatomic, strong, readonly) NSString *Version;
-@property (nonatomic, strong, readonly) NSString *Product;
+@property (nonatomic, strong, readonly, nullable) NSString *UDID;
+@property (nonatomic, strong, readonly, nullable) NSString *IMEI;
+@property (nonatomic, strong, readonly, nullable) NSString *ICCID;    ///< Maybe nil
+@property (nonatomic, strong, readonly, nullable) NSString *Version;
+@property (nonatomic, strong, readonly, nullable) NSString *Product;
 
-+ (instancetype)responseWithData:(NSData *)data;
++ (instancetype _Nonnull)responseWithData:(NSData * _Nonnull)data;
 
 @end

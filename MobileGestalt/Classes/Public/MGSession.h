@@ -28,7 +28,7 @@
 /**
  Local server *.mobileconfig path. Default: /MobileGestalt/mdm.mobileconfig
  */
-@property (nonatomic, copy) NSString *mobileConfigPath;
+@property (nonatomic, copy, nonnull) NSString *mobileConfigPath;
 
 /**
  Local server register path, Default: /MobileGestalt/register
@@ -37,14 +37,14 @@
  For MGCustomRequest: it will pass to request.
  For MGNormalRequest, you must use a *.mobileconfig with this registerPath,
  */
-@property (nonatomic, copy) NSString *registerPath;
+@property (nonatomic, copy, nonnull) NSString *registerPath;
 
 /**
  Callback URL scheme.
  
  Add an URLScheme to Info.plist, and pass it here. It will auto jump back after user install profile.
  */
-@property (nonatomic, strong) NSString *callbackScheme;
+@property (nonatomic, strong, nullable) NSString *callbackScheme;
 
 @property (nonatomic, assign) BOOL log;
 
@@ -53,7 +53,7 @@
 
  @return MGSessionConfiguration
  */
-+ (instancetype)defaultConfiguration;
++ (instancetype _Nonnull)defaultConfiguration;
 
 @end
 
@@ -62,7 +62,7 @@
 /**
  Configuration
  */
-@property (nonatomic, strong, readonly) MGSessionConfiguration *configuration;
+@property (nonatomic, strong, readonly, nonnull) MGSessionConfiguration *configuration;
 
 /**
  Enable
@@ -76,10 +76,10 @@
  
  Server error for starting.
  */
-@property (nonatomic, strong, readonly) NSError *error;
+@property (nonatomic, strong, readonly, nullable) NSError *error;
 
 /**
- Server port
+ Server port. Return 0 if the server did not start.
  */
 @property (nonatomic, assign, readonly) NSUInteger port;
 
@@ -89,14 +89,14 @@
  @param configuration MGSessionConfiguration
  @return MGSession
  */
-+ (instancetype)sessionWithConfiguration:(MGSessionConfiguration *)configuration;
++ (instancetype _Nonnull)sessionWithConfiguration:(MGSessionConfiguration * _Nonnull)configuration;
 
 /**
  Create session with default configuration
 
  @return MGSession
  */
-+ (instancetype)defaultSession;
++ (instancetype _Nonnull)defaultSession;
 
 /**
  Send request
@@ -104,6 +104,6 @@
  @param request MGRequest
  @param completed Completion
  */
-- (void)request:(MGRequest *)request completed:(MGCompletion)completed;
+- (void)request:(MGRequest * _Nonnull)request completed:(MGCompletion _Nullable)completed;
 
 @end

@@ -12,10 +12,10 @@
 
 typedef NSString *MGAttribute;
 
-FOUNDATION_EXTERN MGAttribute MGAttributeUDID;
-FOUNDATION_EXTERN MGAttribute MGAttributeIMEI;
-FOUNDATION_EXTERN MGAttribute MGAttributeICCID;
-FOUNDATION_EXTERN MGAttribute MGAttributeVersion;
-FOUNDATION_EXTERN MGAttribute MGAttributeProduct;
+FOUNDATION_EXTERN MGAttribute _Nonnull MGAttributeUDID;
+FOUNDATION_EXTERN MGAttribute _Nonnull MGAttributeIMEI;
+FOUNDATION_EXTERN MGAttribute _Nonnull MGAttributeICCID;
+FOUNDATION_EXTERN MGAttribute _Nonnull MGAttributeVersion;
+FOUNDATION_EXTERN MGAttribute _Nonnull MGAttributeProduct;
 
-typedef void(^MGCompletion)(MGRequest *request, MGResponse *response, NSError *error);
+typedef void(^MGCompletion)(MGRequest * _Nonnull request, MGResponse * _Nullable response, NSError * _Nullable error);
